@@ -73,7 +73,8 @@
      <div class="right">
      <h2>Product</h2>
      <h2>Orders</h2> 
-     <h2>Profile</h2>  
+     <a href="{% url 'profile_link' %}"><h2>Profile</h2>  </a>
+     
      </div>
     </div>
     <center><h1>Welcome to Dashboard</h1></center>
@@ -81,9 +82,9 @@
         {% for i in products %}
             <div class="product">
                 <img src="{{i.Product_image.url}}" height="250px" width="200px" alt=""><br>
-                <button>view</button>
+                <a href="{% url 'product_details' i.id %}"><button>view</button></a>
             </div>
-    {% endfor %}
+        {% endfor %}
     </div>
 
 </body>
