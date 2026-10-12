@@ -48,6 +48,7 @@ class Order(models.Model):
     state = models.CharField(max_length=100)
     ordered_date = models.DateTimeField(auto_now_add=True)
     address = models.CharField(max_length=100,default="Placed")
+    status = models.CharField(max_length=50,default="placed")
 
     def __str__(self):
         return f"Order Placed by {self.user.username} - {self.product.name}"

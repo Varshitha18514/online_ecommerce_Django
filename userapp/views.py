@@ -93,10 +93,18 @@ def order(request, id):
             city=city,
             pincode=pincode,
             state=state,
-            address=address
+            address=address,
+            status="placed"
         )
         return redirect("dashboard_link")
     return render(request,"userapp/order.html")
+
+def order_list(request):
+    user_id = request.session.get("user_id")
+    orders = Order.objects.filter(user_id = user_id).order_by("-ordered_date")
+    print(orders)
+    return render(request,"userapp/order_list.html",{"orders":orders})
+
 
 
 
